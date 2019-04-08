@@ -9,13 +9,15 @@ const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
 
+require('dotenv').config();
+
 const db = knex({
   client: 'pg',
   connection: {
-    host: '127.0.0.1',
-    user: 'postgres',
-    password: '',
-    database: 'smartbrain'
+    host: '127.0.0.1', //localhost
+    user: process.env.DB_USER,
+    password: process.env.DB_PW,
+    database: process.env.DB_USER
   }
 });
 
@@ -48,6 +50,10 @@ app.get('/profile/:id', (req, res) => {
 
 app.put('/image', (req, res) => {
   image.handleImage(req, res, db);
+});
+
+app.post('/imageurl', (req, res) => {
+  image.handleApiCall(req, res);
 });
 
 app.listen(3000, () => {
