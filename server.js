@@ -14,7 +14,7 @@ require('dotenv').config();
 const db = knex({
   client: 'pg',
   connection: {
-    host: process.env.DATABASE_URL, //'127.0.0.1', //localhost
+    connectionString: process.env.DATABASE_URL, //'127.0.0.1', //localhost
     ssl: true
 
     // production db
