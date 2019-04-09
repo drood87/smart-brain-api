@@ -21,16 +21,16 @@ const db = knex({
   }
 });
 
-db.select('*')
-  .from('users')
-  .then(data => {
-    //console.log(data);
-  });
+// db.select('*')
+//   .from('users')
+//   .then(data => {
+//     //console.log(data);
+//   });
 
 const app = express();
 
-app.use(bodyParser.json());
 app.use(cors());
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.send('it is working');
