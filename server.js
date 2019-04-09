@@ -11,7 +11,7 @@ const image = require('./controllers/image');
 
 require('dotenv').config();
 
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000;
 
 const db = knex({
   client: 'pg',
