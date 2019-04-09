@@ -14,10 +14,13 @@ require('dotenv').config();
 const db = knex({
   client: 'pg',
   connection: {
-    host:  'postgresql-pointy-82721'//'127.0.0.1', //localhost
-    user: process.env.DB_USER,
-    password: process.env.DB_PW,
-    database: process.env.DB_USER
+    host: process.env.DATABASE_URL, //'127.0.0.1', //localhost
+    ssl: true
+
+    // production db
+    // user: process.env.DB_USER,
+    // password: process.env.DB_PW,
+    // database: process.env.DB_USER
   }
 });
 
