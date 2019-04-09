@@ -11,8 +11,6 @@ const image = require('./controllers/image');
 
 require('dotenv').config();
 
-const port = process.env.PORT || 3000;
-
 const db = knex({
   client: 'pg',
   connection: {
@@ -58,7 +56,7 @@ app.post('/imageurl', (req, res) => {
   image.handleApiCall(req, res);
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
 
